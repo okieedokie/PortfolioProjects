@@ -1,0 +1,33 @@
+-- Exploratory Data Analysis
+-- Exploring the data and understanding what it means
+
+USE world_layoffs;
+
+SELECT *
+FROM layoffs;
+
+# looking at the aggregate of total_layoffs by the company
+SELECT company, SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY company
+ORDER BY 2 DESC;
+
+# looking at what industry lost the most employees
+SELECT industry, SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY industry
+ORDER BY 2 DESC;
+
+# looking at what country lost the most employees
+SELECT country, SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY country
+ORDER BY 2 DESC;
+
+
+SELECT stage, SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY stage
+ORDER BY 2 DESC;
+
+
